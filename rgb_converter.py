@@ -10,7 +10,7 @@ def save_gif_sequence(images,outname, duration = 1000/20):
 	#https://pillow.readthedocs.io/en/latest/handbook/image-file-formats.html#gif
 	first = images[0].convert("P")
 	rest = [image.convert("P") for image in images[1:]]
-	first.save(outname, save_all=True, append_images=rest, duration = duration)
+	first.save(outname, save_all=True, append_images=rest, duration = duration, loop = 0)
 
 def load_gif_animation(gifname):
 	image = Image.open(gifname)
