@@ -1,10 +1,13 @@
 from __future__ import print_function
 from PIL import Image
 from math import ceil
-
+"""Usage: python rgb_converter.py somesnake.gif
+Returns: the image converted into subpixels horizontally (each three pixel goes into R, G, B)
+For PNGs, a gif of the three offsets and three images of the offsets
+For GIFs, three gifs of the three offsets"""
 	
 def save_gif_sequence(images,outname, duration = 1000/20):
-	https://pillow.readthedocs.io/en/latest/handbook/image-file-formats.html#gif
+	#https://pillow.readthedocs.io/en/latest/handbook/image-file-formats.html#gif
 	first = images[0].convert("P")
 	rest = [image.convert("P") for image in images[1:]]
 	first.save(outname, save_all=True, append_images=rest, duration = duration)
@@ -24,7 +27,7 @@ def main_for_png(filename):
 	results = []
 	for i in range(3):
 		res = turn_image(original,i)
-		res.save(filename+"rgb"[i]+".png")
+		res.save(filename+"_"+"rgb"[i]+".png")
 		results.append(res)
 	save_gif_sequence(results+[results[1]],filename+"_rgb.gif",1000/4)
 
