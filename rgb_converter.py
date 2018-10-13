@@ -93,7 +93,7 @@ if __name__ == "__main__":
 		for image in images:
 			result.append(turn_image(image,offset,vscale))
 			
-		name = filename[:-4] + "_" + "RGB"[offset]+("_tall","_small")[vscale]
+		name = filename[:-4] +("_tall","_small")[vscale] + "_" + "RGB"[offset]
 		
 		if(len(result)>1):
 			save_gif_sequence(result,name+".gif")
