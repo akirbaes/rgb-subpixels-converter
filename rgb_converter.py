@@ -61,7 +61,7 @@ def turn_image(original, offset=0, vscale=False):
 	for y in range(new_height):
 		for x in range(new_width):
 			rgb = []
-			for old_x in range(x*3,min(x*3+3,old_width)):
+			for old_x in range(x*3,min(x*3+3,old_width+offset)):
 				#print(old_x,y)
 				if(old_x<offset):
 					value = 0
@@ -76,7 +76,7 @@ def turn_image(original, offset=0, vscale=False):
 				rgb.append(int(value))
 			#print(rgb)
 			if(len(rgb)!=3):
-				print("Border lost:",rgb)
+				#print("Border lost:",rgb)
 				rgb+=[0]*(3-len(rgb))
 			output.putpixel((x,y),tuple(rgb))
 	return output
