@@ -27,7 +27,7 @@ x_offsets = [index for index, value in enumerate(offsets) if value==1]
 
 reverse = "reverse" in sysargs
 forward = not reverse
-colored = not "greyscale" in sysargs
+colored = (not "greyscale" in sysargs) and (not "grayscale" in sysargs)
 
 if("reverse" in sysargs):
 	print("Subpixels to full image")
